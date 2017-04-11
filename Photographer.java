@@ -9,13 +9,15 @@ public class Photographer {
   }
 
   public Photographer() {
-      this.cameraList = new ArrayList<Printable>();
+      this.cameras = new ArrayList<Printable>();
     }
 
   public void addCamera(Printable camera) {
-    cameraList.add(camera);
+    cameras.add(camera);
   }
 
- 
+   public void removeCamera(Printable camera) {
+     cameras.remove(camera);
+   }
 
 }

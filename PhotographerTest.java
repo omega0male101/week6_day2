@@ -9,7 +9,7 @@ public class PhotographerTest{
     Printable printable;
 
   @Before
-  public void before();{
+  public void before(){
     photographer = new Photographer();
     analogCamera = new AnalogCamera("Sony");
     digitalCamera = new DigitalCamera("Nikon");
@@ -19,6 +19,25 @@ public class PhotographerTest{
   public void cameraStartsEmpty(){
     assertEquals(0, photographer.cameraCount());
   }
+
+  @Test
+   public void canAddCamera() {
+     photographer.addCamera(printable);
+     assertEquals(1, photographer.cameraCount());
+   }
+
+   @Test
+   public void canRemoveCamera() {
+     photographer.addCamera(digitalCamera);
+     photographer.addCamera(analogCamera);
+     photographer.removeCamera(analogCamera);
+     assertEquals(1, photographer.cameraCount());
+   }
+
+   @Test
+     public void cameraCanPrintDetails() {
+       assertEquals("Nikon", digitalCamera.printDetails());
+     }
 
 
 
